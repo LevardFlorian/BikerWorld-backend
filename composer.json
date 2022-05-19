@@ -1,0 +1,30 @@
+{
+    "require": {
+        "johnpbloch/wordpress": "^5.9",
+        "wpackagist-theme/twentyseventeen": "^2.9",
+        "wpackagist-plugin/fakerpress": "^0.5.3",
+        "wpackagist-plugin/query-monitor": "^3.9",
+        "wpackagist-theme/crio": "^2.15"
+    },
+    "config": {
+        "allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true,
+            "composer/installers": true
+        }
+    },
+    "scripts": {
+        "autoload": "cd wp-content/plugins/bikerworld && composer dump-autoload",
+        "build-assets": "cd wp-content/themes/bikerworld && parcel build src/main.js",
+        "reactivate-plugin": "wp plugin deactivate bikerworld && wp plugin activate bikerworld"
+    },
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ]
+}
